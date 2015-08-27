@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+   <LinearLayout
+       android:id="@+id/temp"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       >
+       <RelativeLayout
+           android:layout_width="fill_parent"
+           android:layout_height="wrap_content"
+           >
+           <TextView android:text="Name of Game"
+               android:layout_marginTop="22dp"
+               android:layout_marginBottom="22dp"
+               android:layout_width="wrap_content"
+               android:layout_centerInParent="true"
+               android:layout_gravity="center"
+               android:textSize="21dp"
+               android:textStyle="bold"
+
+               android:layout_height="wrap_content" />
+           <Button
+               android:layout_centerVertical="true"
+               android:layout_alignParentRight="true"
+               android:layout_width="wrap_content"
+               android:layout_marginRight="10dp"
+               android:layout_height="wrap_content"
+               android:text="Generate"
+               />
+       </RelativeLayout>
+
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="2.5dp"
+           android:background="#fff" />
+   </LinearLayout>
+    <TextView android:text="Choose :"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:layout_width="wrap_content"
+
+        android:textSize="21dp"
+        android:textStyle="bold"
+
+        android:layout_height="wrap_content" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.5dp"
+        android:background="#fff" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/temp"
+        >
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activity"
+        android:layout_weight="1"
+        />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activities"
+            android:layout_weight="1"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#fff" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="If"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Else"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Repeat"
+            />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#fff" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2.5dp"
+        android:background="#fff" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fillViewport="true"
+        android:focusableInTouchMode="true"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <!-- Name -->
+
+            <RelativeLayout
+                android:id="@+id/top_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top" >
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+                <TextView
+                    android:textColor="#000"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name" />
+            </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</LinearLayout>
