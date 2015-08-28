@@ -2,15 +2,22 @@ package workflow.xeaphii.com.workflow;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -156,6 +163,44 @@ public class Designer extends Activity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                        DisplayMetrics metrics;
+                        metrics = new DisplayMetrics();
+                        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+                        LayoutInflater Inflater = (LayoutInflater) Designer.this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                        View view = Inflater.inflate(R.layout.designer, null);
+                        LinearLayout layout = (LinearLayout) view.findViewById(R.id.designer_layout);
+
+                        LinearLayout LL = new LinearLayout(Designer.this);
+                        LL.setOrientation(LinearLayout.HORIZONTAL);
+                        LinearLayout.LayoutParams LLParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+                        LLParams.gravity = Gravity.CENTER;
+                        LLParams.setMargins(0, getDPI(20, metrics), 0, 0);
+                        LL.setLayoutParams(LLParams);
+
+                        RelativeLayout RL = new RelativeLayout(Designer.this);
+                        RelativeLayout.LayoutParams RLParams = new RelativeLayout.LayoutParams(getDPI(150, metrics),getDPI(80, metrics));
+                        RL.setBackgroundResource(R.mipmap.custombutton);
+                        RL.setLayoutParams(RLParams);
+
+                        Button Tag = new Button(Designer.this);
+                        RelativeLayout.LayoutParams but_params = new RelativeLayout.LayoutParams(
+                                RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+                        but_params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                        but_params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                        Tag.setLayoutParams(but_params);
+                        Tag.setText("Temp");
+                        Tag.setBackgroundColor(getResources().getColor(android.R.color.transparent));
+
+
+
+
+
+                        RL.addView(Tag);
+                        LL.addView(RL);
+                        layout.addView(LL);
+                        Toast.makeText(getApplicationContext(),"Click",Toast.LENGTH_LONG).show();
+
                         ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
                         if(StepActivity.isChecked()){
                             TempActivity.id = 1;
@@ -333,5 +378,8 @@ public class Designer extends Activity {
             }
         });
 
+    }
+    public static int getDPI(int size, DisplayMetrics metrics){
+        return (size * metrics.densityDpi) / DisplayMetrics.DENSITY_DEFAULT;
     }
 }
