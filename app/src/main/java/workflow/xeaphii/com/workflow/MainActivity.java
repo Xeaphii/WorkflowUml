@@ -1,17 +1,35 @@
 package workflow.xeaphii.com.workflow;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    Button LetsGo;
+    EditText GameName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LetsGo = (Button) findViewById(R.id.start_workflow);
+        GameName = (EditText) findViewById(R.id.name);
+        LetsGo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,Designer.class);
+                i.putExtra("name",GameName.getText().toString());
+                startActivity(i);
+            }
+        });
     }
 
     @Override

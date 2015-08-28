@@ -13,6 +13,7 @@
            android:layout_height="wrap_content"
            >
            <TextView android:text="Name of Game"
+               android:id="@+id/workflow_name"
                android:layout_marginTop="22dp"
                android:layout_marginBottom="22dp"
                android:layout_width="wrap_content"
@@ -23,8 +24,10 @@
 
                android:layout_height="wrap_content" />
            <Button
+               android:id="@+id/generate_button"
                android:layout_centerVertical="true"
                android:layout_alignParentRight="true"
+
                android:layout_width="wrap_content"
                android:layout_marginRight="10dp"
                android:layout_height="wrap_content"
@@ -58,12 +61,15 @@
         android:layout_below="@+id/temp"
         >
     <Button
+        android:id="@+id/activity_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Activity"
         android:layout_weight="1"
         />
+
         <Button
+            android:id="@+id/activities_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Activities"
@@ -76,18 +82,21 @@
             android:layout_marginRight="5dp"
             android:background="#fff" />
         <Button
+            android:id="@+id/if_button"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="If"
             />
         <Button
+            android:id="@+id/else_button"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Else"
             />
         <Button
+            android:id="@+id/repeat_button"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -100,6 +109,7 @@
             android:layout_marginRight="5dp"
             android:background="#fff" />
         <Button
+            android:id="@+id/delete_button"
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:layout_height="wrap_content"
@@ -137,6 +147,7 @@
 
 
             <LinearLayout
+                android:id="@+id/designer_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
