@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Administrator on 8/28/2015.
  */
@@ -22,12 +25,14 @@ public class Designer extends Activity {
     Button ActivityButton, ActivitiesButton, IfButton,ElseButton,RepearButton,GenerateButton;
     boolean[] ActiviesCheck;
     private final int ActivitiesCount = 5;
+    List<ActivityWorkflowPojo> WorkflowList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.designer);
         WorkflowName= (TextView) findViewById(R.id.workflow_name);
         Intent i = getIntent();
+        WorkflowList = new ArrayList<ActivityWorkflowPojo>();
         WorkflowName.setText(i.getStringExtra("name"));
         ActiviesCheck = new boolean[ActivitiesCount];
         ActivityButton = (Button) findViewById(R.id.activity_button);
@@ -151,6 +156,22 @@ public class Designer extends Activity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+                        ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                        if(StepActivity.isChecked()){
+                            TempActivity.id = 1;
+                            TempActivity.ExtraString = StepsCountString;
+                        }else if(WaitActivity.isChecked()){
+                            TempActivity.id = 2;
+                            TempActivity.ExtraString = SecondsCountString;
+                        }else if(TurnLeftActivity.isChecked()){
+                            TempActivity.id = 3;
+                        }else if(TurnRightActivity.isChecked()){
+                            TempActivity.id = 4;
+                        }else if(SaySomethingActivity.isChecked()){
+                            TempActivity.id =5;
+                            TempActivity.ExtraString = SaySomethingString;
+                        }
+                        WorkflowList.add(TempActivity);
                     }
                 });
 
@@ -251,6 +272,36 @@ public class Designer extends Activity {
                     @Override
                     public void onClick(View v) {
                         dialog.dismiss();
+
+                        if(StepActivity.isChecked()){
+                            ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                            TempActivity.id = 1;
+                            TempActivity.ExtraString = StepsCountString;
+                            WorkflowList.add(TempActivity);
+                        }
+                        if(WaitActivity.isChecked()){
+                            ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                            TempActivity.id = 2;
+                            TempActivity.ExtraString = SecondsCountString;
+                            WorkflowList.add(TempActivity);
+                        }
+                        if(TurnLeftActivity.isChecked()){
+                            ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                            TempActivity.id = 3;
+                            WorkflowList.add(TempActivity);
+                        }
+                        if(TurnRightActivity.isChecked()){
+                            ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                            TempActivity.id = 4;
+                            WorkflowList.add(TempActivity);
+                        }
+                        if(SaySomethingActivity.isChecked()){
+                            ActivityWorkflowPojo TempActivity = new ActivityWorkflowPojo();
+                            TempActivity.id =5;
+                            TempActivity.ExtraString = SaySomethingString;
+                            WorkflowList.add(TempActivity);
+                        }
+
                     }
                 });
 

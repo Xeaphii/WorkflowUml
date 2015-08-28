@@ -28,6 +28,7 @@
                 android:id="@+id/steps_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:hint="steps"
                 />
             <TextView
@@ -52,6 +53,7 @@
             <EditText
                 android:id="@+id/seconds_count"
                 android:layout_width="wrap_content"
+                android:enabled="false"
                 android:layout_height="wrap_content"
                 android:hint="seconds"
                 />
@@ -109,6 +111,7 @@
             <EditText
                 android:id="@+id/say_something_text"
                 android:layout_width="wrap_content"
+                android:enabled="false"
                 android:layout_height="wrap_content"
                 android:hint="type something"
                 />
