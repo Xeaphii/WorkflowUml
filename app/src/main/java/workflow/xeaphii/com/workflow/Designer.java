@@ -50,6 +50,12 @@ public class Designer extends Activity {
         WorkflowName= (TextView) findViewById(R.id.workflow_name);
         Intent i = getIntent();
         name = i.getStringExtra("name");
+        ((Button) findViewById(R.id.back_button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         WorkflowName.setText(i.getStringExtra("name"));
         ActivityButton = (Button) findViewById(R.id.activity_button);
         ActivitiesButton = (Button) findViewById(R.id.activities_button);

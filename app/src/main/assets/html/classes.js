@@ -25,7 +25,7 @@ $(document).ready(function() {
 	
 	data=  getURLParameters("string_input");
 	ActivitiesArray = data.split(",");
-	var width = (ActivitiesArray.length/2)*$(document).width();
+	var width = (ActivitiesArray.length/5)*$(document).width();
 	isPreviousIf = 0;
 	g.addNode("0:Init", {render:init});
     var height = $(document).height();
