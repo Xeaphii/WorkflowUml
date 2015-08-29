@@ -16,6 +16,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -30,6 +33,7 @@ public class DesignerTemp extends Activity{
     WebView WebDesigner;
     String Activities = "Init";
     String name = "";
+    TextView BannerTemp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class DesignerTemp extends Activity{
         WebDesigner = (WebView) findViewById(R.id.web_designer);
         //getActionBar().show();
         WebDesigner.getSettings().setJavaScriptEnabled(true);
+
+        BannerTemp = (TextView) findViewById(R.id.temp_banner);
 //        WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
 //                "1,2,3,4" +
 //                "");
@@ -58,6 +64,7 @@ public class DesignerTemp extends Activity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Take appropriate action for each action item click
+        BannerTemp.setVisibility(View.GONE);
         switch (item.getItemId()) {
             case R.id.action_add:
                 // search action
@@ -69,7 +76,6 @@ public class DesignerTemp extends Activity{
                 Button ActivitiesButton = (Button) dialog1.findViewById(R.id.activities_button);
                 Button IfButton = (Button) dialog1.findViewById(R.id.if_button);
                 Button ElseButton = (Button) dialog1.findViewById(R.id.else_button);
-                Button DeleteActivity = (Button) dialog1.findViewById(R.id.delete_button);
                 Button RepearButton = (Button) dialog1.findViewById(R.id.repeat_button);
                 ActivityButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -359,7 +365,7 @@ public class DesignerTemp extends Activity{
                                     isChecked = true;
                                 }
                                 WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
-                                        Activities+
+                                        Activities +
                                         "");
                             }
 
@@ -510,20 +516,7 @@ public class DesignerTemp extends Activity{
                         ShowActivitiesDialogueElse();
                     }
                 });
-                DeleteActivity.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog1.dismiss();
-                        String[] temp = Activities.split(",");
-                        Activities = temp[0];
-                        for (int i = 1; i < temp.length-1; i++) {
-                            Activities = Activities + "," + temp[i];
-                        }
-                        WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
-                                Activities +
-                                "");
-                    }
-                });
+
                 RepearButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -555,6 +548,18 @@ public class DesignerTemp extends Activity{
                 // location found
                 checkExternalMedia();
                 writeToSDFile();
+                return true;
+            case R.id.action_delete:
+                String[] temp = Activities.split(",");
+                Activities = temp[0];
+                for (int i = 1; i < temp.length-1; i++) {
+                    Activities = Activities + "," + temp[i];
+                }
+                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                        Activities +
+                        "");
+                // location found
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

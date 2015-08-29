@@ -8,24 +8,37 @@ $(document).ready(function() {
 				/* the Raphael set is obligatory, containing all you want to display */
 				var set = r.set().push(
 					/* custom objects go here */
+					
 					r.rect(n.point[0]-30, n.point[1]-13, 60, 44).attr({"fill": "#d0d0d0", r : "0px", "stroke-width" : n.distance == 0 ? "3px" : "1px" })).push(
 					r.text(n.point[0], n.point[1] + 10, (n.label || n.id) ));
 				return set;
 			};
 			
+			var loopShapeLarge = function(r, n) {
+				/* the Raphael set is obligatory, containing all you want to display */
+				var set = r.set().push(
+					/* custom objects go here */
+					
+					r.rect(n.point[0]-30, n.point[1]-13, 150, 44).attr({"fill": "#FFCC00", r : "20px", "stroke-width" : n.distance == 0 ? "3px" : "1px" })).push(
+					r.text(n.point[0]+40, n.point[1] + 10, (n.label || n.id).substring(0,25)+"\n"+ (n.label || n.id).substring(25,(n.label || n.id).length)));
+					
+			return set;
+			};
 			var loopShape = function(r, n) {
 				/* the Raphael set is obligatory, containing all you want to display */
 				var set = r.set().push(
 					/* custom objects go here */
-					r.rect(n.point[0]-30, n.point[1]-13, 150, 44).attr({"fill": "#fff", r : "20px", "stroke-width" : n.distance == 0 ? "3px" : "1px" })).push(
-					r.text(n.point[0]+40, n.point[1] + 10, (n.label || n.id) ));
-				return set;
+					
+					r.rect(n.point[0]-30, n.point[1]-13, 150, 44).attr({"fill": "#FFCC00", r : "20px", "stroke-width" : n.distance == 0 ? "3px" : "1px" })).push(
+					r.text(n.point[0]+40, n.point[1] + 10, (n.label || n.id)));
+					
+			return set;
 			};
 			
 	
 	data=  getURLParameters("string_input");
 	ActivitiesArray = data.split(",");
-	var width = (ActivitiesArray.length/5)*$(document).width();
+	var width = (ActivitiesArray.length/8)*$(document).width();
 	isPreviousIf = 0;
 	g.addNode("0:Init", {render:init});
     var height = $(document).height();
@@ -39,7 +52,12 @@ $(document).ready(function() {
 			}else{
 				if(isPreviousIf == 1 && ActivitiesArray[i-1].split("/").length>1){
 				if(ActivitiesArray[i].toLowerCase().indexOf("repeat")>-1){
-						g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShape});
+				if("".concat(i,":",ActivitiesArray[i]).length>25){
+					g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShapeLarge});
+				}else{
+					g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShape});
+				}
+						
 
 					}
 					g.addEdge("".concat(0,":",ActivitiesArray[i-1].split("/")[0]),"".concat(i,":",ActivitiesArray[i]));
@@ -48,8 +66,12 @@ $(document).ready(function() {
 				}else{
 					//g.addNode("".concat(i,":",ActivitiesArray[i]), {render:render});
 					if(ActivitiesArray[i].toLowerCase().indexOf("repeat")>-1){
-						g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShape});
-
+						
+							if("".concat(i,":",ActivitiesArray[i]).length>25){
+											g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShapeLarge});
+											}else{
+											g.addNode("".concat(i,":",ActivitiesArray[i]), {render:loopShape});
+											}
 					}
 					g.addEdge("".concat((i-1),":",ActivitiesArray[i-1]),"".concat(i,":",ActivitiesArray[i]));
 				}	

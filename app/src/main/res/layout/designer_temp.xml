@@ -4,7 +4,7 @@
     android:layout_gravity="center"
     android:background="#006600"
     android:layout_height="match_parent">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
 
@@ -16,6 +16,17 @@
 
         </WebView>
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/temp_banner"
+            android:layout_width="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:text="Choose the (drawing of the pencil) to create the game workflow"/>
+
+
+    </RelativeLayout>
 
 </LinearLayout>
