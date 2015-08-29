@@ -36,7 +36,8 @@
         android:layout_width="fill_parent"
         android:layout_marginTop="20dp"
         android:layout_margin="3dp"
-        android:background="#5c5c5c"
+        android:background="@drawable/button"
+        android:textStyle="bold"
         android:textColor="#fff"
         android:layout_height="wrap_content"
         android:text="Let's do it"/>
