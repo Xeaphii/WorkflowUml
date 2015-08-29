@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
+    android:background="#00b200"
     android:padding="20dp"
     android:layout_height="wrap_content">
 
@@ -26,14 +27,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#0f0f0f"
                 android:text="Walk"/>
             <EditText
                 android:id="@+id/steps_count"
+                android:textColor="#0f0f0f"
+                android:inputType="number"
                 android:layout_width="wrap_content"
+                android:enabled="true"
                 android:layout_height="wrap_content"
                 android:hint="steps"
                 />
             <TextView
+                android:textColor="#0f0f0f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Walk"/>
@@ -50,16 +56,21 @@
                  />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Wait"/>
             <EditText
                 android:id="@+id/seconds_count"
                 android:layout_width="wrap_content"
+                android:enabled="false"
+                android:inputType="number"
                 android:layout_height="wrap_content"
+                android:textColor="#0f0f0f"
                 android:hint="seconds"
                 />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Seconds"/>
         </LinearLayout>
@@ -75,6 +86,7 @@
                  />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Turn Right"/>
 
@@ -91,6 +103,7 @@
                  />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Tuen left"/>
 
@@ -108,10 +121,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#0f0f0f"
                 android:text="Say"/>
             <EditText
                 android:id="@+id/say_something_text"
                 android:layout_width="wrap_content"
+                android:enabled="false"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:hint="type something"
                 />
@@ -124,6 +140,9 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
+        android:layout_margin="3dp"
+        android:background="#5c5c5c"
+        android:textColor="#fff"
         android:layout_below="@+id/temp"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"

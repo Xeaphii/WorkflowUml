@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_gravity="center"
+    android:background="#00b200"
     android:layout_height="match_parent">
    <LinearLayout
        android:id="@+id/temp"
@@ -17,6 +18,7 @@
                android:id="@+id/workflow_name"
                android:layout_marginTop="22dp"
                android:layout_marginBottom="22dp"
+               android:textColor="#0f0f0f"
                android:layout_width="wrap_content"
                android:layout_centerInParent="true"
                android:layout_gravity="center"
@@ -27,8 +29,10 @@
            <Button
                android:id="@+id/generate_button"
                android:layout_centerVertical="true"
+               android:layout_margin="3dp"
                android:layout_alignParentRight="true"
-
+               android:background="#5c5c5c"
+               android:textColor="#fff"
                android:layout_width="wrap_content"
                android:layout_marginRight="10dp"
                android:layout_height="wrap_content"
@@ -45,6 +49,7 @@
     <TextView android:text="Choose :"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="5dp"
+        android:textColor="#0f0f0f"
         android:layout_width="wrap_content"
 
         android:textSize="21dp"
@@ -55,362 +60,93 @@
         android:layout_width="match_parent"
         android:layout_height="2.5dp"
         android:background="#fff" />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@+id/temp"
-        >
-    <Button
-        android:id="@+id/activity_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Activity"
-        android:layout_weight="1"
-        />
 
-        <Button
-            android:id="@+id/activities_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Activities"
-            android:layout_weight="1"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="#fff" />
-        <Button
-            android:id="@+id/if_button"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="If"
-            />
-        <Button
-            android:id="@+id/else_button"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Else"
-            />
-        <Button
-            android:id="@+id/repeat_button"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Repeat"
-            />
-        <View
-            android:layout_width="1dp"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="#fff" />
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Delete"
-            />
-
-    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="2.5dp"
         android:background="#fff" />
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:fillViewport="true"
-        android:focusableInTouchMode="true"
-        android:paddingBottom="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        >
-        <HorizontalScrollView android:id="@+id/HorizontalScrollView01"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center|left"
-           >
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="fill_parent">
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          >
+          <Button
+              android:id="@+id/activity_button"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="3dp"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:text="Activity"
+              />
 
-            <!-- Name -->
+          <Button
+              android:id="@+id/activities_button"
+              android:layout_width="fill_parent"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:layout_margin="3dp"
+              android:layout_height="wrap_content"
+              android:text="Activities"
+              />
+          <View
+              android:layout_width="fill_parent"
+              android:layout_height="5dp"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:background="#fff" />
+          <Button
+              android:id="@+id/if_button"
+              android:layout_width="fill_parent"
+              android:layout_margin="3dp"
+              android:layout_height="wrap_content"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:text="If"
+              />
+          <Button
+              android:id="@+id/else_button"
+              android:layout_width="fill_parent"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:layout_height="wrap_content"
+              android:layout_margin="3dp"
+              android:text="Else"
+              />
+          <Button
+              android:id="@+id/repeat_button"
+              android:layout_width="fill_parent"
+              android:layout_margin="3dp"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:layout_height="wrap_content"
+              android:text="Repeat"
+              />
+          <View
+              android:layout_width="fill_parent"
+              android:layout_height="5dp"
+              android:layout_marginLeft="5dp"
+              android:layout_marginRight="5dp"
+              android:background="#fff" />
+          <Button
+              android:id="@+id/delete_button"
+              android:layout_width="wrap_content"
+              android:background="#5c5c5c"
+              android:textColor="#fff"
+              android:layout_margin="3dp"
+              android:layout_height="wrap_content"
+              android:text="Delete"
+              />
 
-            <RelativeLayout
-                android:id="@+id/top_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+      </LinearLayout>
+      <WebView
+          android:id="@+id/web_designer"
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"></WebView>
+  </LinearLayout>
 
-                android:layout_gravity="top" >
-
-
-            <LinearLayout
-                android:id="@+id/designer_layout"
-
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    >
-                    <RelativeLayout
-                        android:layout_width="150dp"
-                        android:background="@mipmap/custombutton"
-                        android:layout_height="80dp">
-
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:text="Init"
-                            android:layout_alignParentTop="true"
-                            android:background="@null"
-                            android:layout_centerHorizontal="true"
-                            android:layout_height="wrap_content" />
-                    </RelativeLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    >
-                    <RelativeLayout
-                        android:layout_width="150dp"
-                        android:background="@mipmap/custombutton"
-                        android:layout_height="80dp">
-
-
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:text="Act1"
-                            android:layout_alignParentTop="true"
-                            android:background="@null"
-                            android:layout_centerHorizontal="true"
-                            android:layout_height="wrap_content" />
-                    </RelativeLayout>
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        ><View
-
-                        android:layout_width="160dp"
-                        android:layout_height="4dp"
-                        android:layout_marginLeft="70dp"
-                        android:background="#000000" />
-
-                        <RelativeLayout
-
-                            android:layout_width="150dp"
-                            android:id="@+id/temp1"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_centerHorizontal="true"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_toRightOf="@+id/temp1"
-                            android:layout_width="150dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-                                android:id="@+id/temp2"
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_marginLeft="-5dp"
-                        android:layout_height="wrap_content"
-                        ><View
-
-                        android:layout_width="160dp"
-                        android:layout_height="4dp"
-                        android:background="#000000" />
-
-                        <RelativeLayout
-                            android:layout_width="150dp"
-                            android:layout_centerHorizontal="true"
-                            android:id="@+id/temp3"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_centerHorizontal="true"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        ><View
-
-                        android:layout_width="320dp"
-                        android:layout_height="4dp"
-                        android:layout_marginLeft="70dp"
-                        android:background="#000000" />
-
-                        <RelativeLayout
-
-                            android:layout_width="150dp"
-                            android:id="@+id/temp5"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_centerHorizontal="true"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_toRightOf="@+id/temp5"
-                            android:layout_width="150dp"
-                            android:layout_marginLeft="10dp"
-                            android:id="@+id/temp9"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-                                android:id="@+id/temp4"
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-                        <RelativeLayout
-                            android:layout_toRightOf="@+id/temp9"
-                            android:layout_width="150dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-                                android:id="@+id/temp8"
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_marginLeft="-5dp"
-                        android:layout_height="wrap_content"
-                        ><View
-
-                        android:layout_width="320dp"
-                        android:layout_height="4dp"
-                        android:background="#000000" />
-
-                        <RelativeLayout
-                            android:layout_width="150dp"
-                            android:id="@+id/temp7"
-                            android:layout_centerHorizontal="true"
-                            android:background="@mipmap/groupactivitycustom"
-                            android:layout_height="105dp">
-
-
-                            <Button
-
-                                android:layout_width="wrap_content"
-                                android:text="Act1"
-                                android:layout_centerInParent="true"
-                                android:background="@null"
-                                android:layout_centerHorizontal="true"
-                                android:layout_height="wrap_content" />
-                        </RelativeLayout>
-
-                    </RelativeLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            </RelativeLayout>
-
-
-        </RelativeLayout>
-        </HorizontalScrollView>
-    </ScrollView>
 </LinearLayout>

@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:padding="20dp"
+    android:background="#00b200"
     android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
@@ -22,17 +23,21 @@
                 />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Walk"/>
             <EditText
                 android:id="@+id/steps_count"
                 android:layout_width="wrap_content"
+                android:inputType="number"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:hint="steps"
                 />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Walk"/>
         </LinearLayout>
@@ -48,18 +53,22 @@
                />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Wait"/>
             <EditText
                 android:id="@+id/seconds_count"
                 android:layout_width="wrap_content"
                 android:enabled="false"
+                android:textColor="#0f0f0f"
+                android:inputType="number"
                 android:layout_height="wrap_content"
                 android:hint="seconds"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#0f0f0f"
                 android:text="Seconds"/>
         </LinearLayout>
         <LinearLayout
@@ -73,6 +82,7 @@
                 android:layout_height="wrap_content"
                  />
             <TextView
+                android:textColor="#0f0f0f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Turn Right"/>
@@ -90,6 +100,7 @@
                 />
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="#0f0f0f"
                 android:layout_height="wrap_content"
                 android:text="Tuen left"/>
 
@@ -105,11 +116,13 @@
                 android:layout_height="wrap_content"
                  />
             <TextView
+                android:textColor="#0f0f0f"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Say"/>
             <EditText
                 android:id="@+id/say_something_text"
+                android:textColor="#0f0f0f"
                 android:layout_width="wrap_content"
                 android:enabled="false"
                 android:layout_height="wrap_content"
@@ -124,6 +137,9 @@
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:layout_below="@+id/temp"
+        android:layout_margin="3dp"
+        android:background="#5c5c5c"
+        android:textColor="#fff"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
