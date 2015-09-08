@@ -15,8 +15,10 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -31,7 +33,7 @@ import java.io.PrintWriter;
  */
 public class DesignerTemp extends Activity{
     WebView WebDesigner;
-    String Activities = "Init";
+    String Activities = "";
     String name = "";
     TextView BannerTemp;
 
@@ -46,7 +48,7 @@ public class DesignerTemp extends Activity{
         WebDesigner.getSettings().setJavaScriptEnabled(true);
 
         BannerTemp = (TextView) findViewById(R.id.temp_banner);
-//        WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+//        WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
 //                "1,2,3,4" +
 //                "");
         ActionBar actionBar = getActionBar();
@@ -70,13 +72,13 @@ public class DesignerTemp extends Activity{
                 // search action
                 final Dialog dialog1 = new Dialog(DesignerTemp.this);
                 dialog1.setContentView(R.layout.add_menu_options);
-                dialog1.setTitle("Choose any activity for if contition");
+                dialog1.setTitle("Choose action:");
 
-                Button ActivityButton = (Button) dialog1.findViewById(R.id.activity_button);
-                Button ActivitiesButton = (Button) dialog1.findViewById(R.id.activities_button);
-                Button IfButton = (Button) dialog1.findViewById(R.id.if_button);
-                Button ElseButton = (Button) dialog1.findViewById(R.id.else_button);
-                Button RepearButton = (Button) dialog1.findViewById(R.id.repeat_button);
+                ImageButton ActivityButton = (ImageButton) dialog1.findViewById(R.id.activity_button);
+               // Button ActivitiesButton = (Button) dialog1.findViewById(R.id.activities_button);
+                ImageButton IfButton = (ImageButton) dialog1.findViewById(R.id.if_button);
+                //Button ElseButton = (Button) dialog1.findViewById(R.id.else_button);
+                ImageButton RepearButton = (ImageButton) dialog1.findViewById(R.id.repeat_button);
                 ActivityButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -242,7 +244,7 @@ public class DesignerTemp extends Activity{
                                             SaySomethingCount.getText().toString() +
                                             "'";
                                 }
-                                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                                         Activities +
                                         "");
                             }
@@ -252,128 +254,128 @@ public class DesignerTemp extends Activity{
 
                     }
                 });
-                ActivitiesButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog1.dismiss();
-                        final Dialog dialog = new Dialog(DesignerTemp.this);
-                        dialog.setContentView(R.layout.activities_list);
-                        dialog.setTitle("Choose pool of activites");
-
-
-                        final CheckBox StepActivity= (CheckBox) dialog.findViewById(R.id.steps_activity);
-                        final CheckBox WaitActivity= (CheckBox) dialog.findViewById(R.id.wait_activity);
-                        final CheckBox  TurnLeftActivity= (CheckBox) dialog.findViewById(R.id.left_turn_activity);
-                        final CheckBox  TurnRightActivity= (CheckBox) dialog.findViewById(R.id.right_turn_activity);
-                        final CheckBox SaySomethingActivity= (CheckBox) dialog.findViewById(R.id.say_something_activity);
-
-                        final EditText  StepsCount= (EditText) dialog.findViewById(R.id.steps_count);
-                        final EditText  SecondsCount= (EditText) dialog.findViewById(R.id.seconds_count);
-                        final EditText SaySomethingCount= (EditText) dialog.findViewById(R.id.say_something_text);
-
-                        StepActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                if (isChecked) {
-                                    StepsCount.setEnabled(true);
-                                } else {
-                                    StepsCount.setEnabled(false);
-                                }
-                            }
-                        });
-
-                        WaitActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                if (isChecked) {
-                                    SecondsCount.setEnabled(true);
-                                } else {
-                                    SecondsCount.setEnabled(false);
-                                }
-                            }
-                        });
-
-
-                        SaySomethingActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                if (isChecked) {
-                                    SaySomethingCount.setEnabled(true);
-                                } else {
-                                    SaySomethingCount.setEnabled(false);
-                                }
-                            }
-                        });
-
-
-                        Button dialogButton = (Button) dialog.findViewById(R.id.go_button);
-                        // if button is clicked, close the custom dialog
-                        dialogButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                dialog.dismiss();
-                                boolean isChecked = false;
-                                if(StepActivity.isChecked()){
-                                    Activities += CheckIfCondition()+"Walk " +
-                                            StepsCount.getText().toString() +
-                                            " Steps";
-                                    isChecked = true;
-
-                                }
-                                if(WaitActivity.isChecked()){
-                                    if(isChecked){
-                                        Activities += " And Wait " +
-                                                SecondsCount.getText().toString() +
-                                                " Seconds";
-                                    }else{
-                                        Activities += CheckIfCondition()+"Wait " +
-                                                SecondsCount.getText().toString() +
-                                                " Seconds";
-                                    }
-
-                                    isChecked = true;
-                                }
-                                if(TurnLeftActivity.isChecked()){
-                                    if(isChecked){
-                                        Activities += " And Turn Left";
-                                    }else{
-                                        Activities += CheckIfCondition()+"Turn Left";
-                                    }
-
-                                    isChecked = true;
-                                }
-                                if(TurnRightActivity.isChecked()){
-                                    if(isChecked){
-                                        Activities += " And Turn Right";
-                                    }else{
-                                        Activities +=CheckIfCondition()+ "Turn Right";
-                                    }
-
-                                    isChecked = true;
-                                }
-                                if(SaySomethingActivity.isChecked()){
-                                    if(isChecked){
-                                        Activities += " And Say '" +
-                                                SaySomethingCount.getText().toString() +
-                                                "'";
-                                    }else{
-                                        Activities += CheckIfCondition()+"Say '" +
-                                                SaySomethingCount.getText().toString() +
-                                                "'";
-                                    }
-
-                                    isChecked = true;
-                                }
-                                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
-                                        Activities +
-                                        "");
-                            }
-
-                        });
-
-                        dialog.show();
-                    }
-                });
+//                ActivitiesButton.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog1.dismiss();
+//                        final Dialog dialog = new Dialog(DesignerTemp.this);
+//                        dialog.setContentView(R.layout.activities_list);
+//                        dialog.setTitle("Choose pool of activites");
+//
+//
+//                        final CheckBox StepActivity= (CheckBox) dialog.findViewById(R.id.steps_activity);
+//                        final CheckBox WaitActivity= (CheckBox) dialog.findViewById(R.id.wait_activity);
+//                        final CheckBox  TurnLeftActivity= (CheckBox) dialog.findViewById(R.id.left_turn_activity);
+//                        final CheckBox  TurnRightActivity= (CheckBox) dialog.findViewById(R.id.right_turn_activity);
+//                        final CheckBox SaySomethingActivity= (CheckBox) dialog.findViewById(R.id.say_something_activity);
+//
+//                        final EditText  StepsCount= (EditText) dialog.findViewById(R.id.steps_count);
+//                        final EditText  SecondsCount= (EditText) dialog.findViewById(R.id.seconds_count);
+//                        final EditText SaySomethingCount= (EditText) dialog.findViewById(R.id.say_something_text);
+//
+//                        StepActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                            @Override
+//                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                                if (isChecked) {
+//                                    StepsCount.setEnabled(true);
+//                                } else {
+//                                    StepsCount.setEnabled(false);
+//                                }
+//                            }
+//                        });
+//
+//                        WaitActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                            @Override
+//                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                                if (isChecked) {
+//                                    SecondsCount.setEnabled(true);
+//                                } else {
+//                                    SecondsCount.setEnabled(false);
+//                                }
+//                            }
+//                        });
+//
+//
+//                        SaySomethingActivity.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//                            @Override
+//                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                                if (isChecked) {
+//                                    SaySomethingCount.setEnabled(true);
+//                                } else {
+//                                    SaySomethingCount.setEnabled(false);
+//                                }
+//                            }
+//                        });
+//
+//
+//                        Button dialogButton = (Button) dialog.findViewById(R.id.go_button);
+//                        // if button is clicked, close the custom dialog
+//                        dialogButton.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                dialog.dismiss();
+//                                boolean isChecked = false;
+//                                if(StepActivity.isChecked()){
+//                                    Activities += CheckIfCondition()+"Walk " +
+//                                            StepsCount.getText().toString() +
+//                                            " Steps";
+//                                    isChecked = true;
+//
+//                                }
+//                                if(WaitActivity.isChecked()){
+//                                    if(isChecked){
+//                                        Activities += "+Wait " +
+//                                                SecondsCount.getText().toString() +
+//                                                " Seconds";
+//                                    }else{
+//                                        Activities += CheckIfCondition()+"Wait " +
+//                                                SecondsCount.getText().toString() +
+//                                                " Seconds";
+//                                    }
+//
+//                                    isChecked = true;
+//                                }
+//                                if(TurnLeftActivity.isChecked()){
+//                                    if(isChecked){
+//                                        Activities += "+Turn Left";
+//                                    }else{
+//                                        Activities += CheckIfCondition()+"Turn Left";
+//                                    }
+//
+//                                    isChecked = true;
+//                                }
+//                                if(TurnRightActivity.isChecked()){
+//                                    if(isChecked){
+//                                        Activities += "+Turn Right";
+//                                    }else{
+//                                        Activities +=CheckIfCondition()+ "Turn Right";
+//                                    }
+//
+//                                    isChecked = true;
+//                                }
+//                                if(SaySomethingActivity.isChecked()){
+//                                    if(isChecked){
+//                                        Activities += "+Say '" +
+//                                                SaySomethingCount.getText().toString() +
+//                                                "'";
+//                                    }else{
+//                                        Activities += CheckIfCondition()+"Say '" +
+//                                                SaySomethingCount.getText().toString() +
+//                                                "'";
+//                                    }
+//
+//                                    isChecked = true;
+//                                }
+//                                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
+//                                        Activities +
+//                                        "");
+//                            }
+//
+//                        });
+//
+//                        dialog.show();
+//                    }
+//                });
                 IfButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -508,14 +510,14 @@ public class DesignerTemp extends Activity{
                         dialog.show();
                     }
                 });
-                ElseButton.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View v) {
-                        dialog1.dismiss();
-                        ShowActivitiesDialogueElse();
-                    }
-                });
+//                ElseButton.setOnClickListener(new View.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(View v) {
+//                        dialog1.dismiss();
+//                        ShowActivitiesDialogueElse();
+//                    }
+//                });
 
                 RepearButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -555,11 +557,14 @@ public class DesignerTemp extends Activity{
                 for (int i = 1; i < temp.length-1; i++) {
                     Activities = Activities + "," + temp[i];
                 }
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities +
                         "");
                 // location found
 
+                return true;
+            case android.R.id.home:
+                this.finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -596,7 +601,7 @@ public class DesignerTemp extends Activity{
                 }
 
             }
-
+            Toast.makeText(DesignerTemp.this,"Good work! your work is saved.",Toast.LENGTH_LONG).show();
             pw.flush();
             pw.close();
             f.close();
@@ -628,7 +633,7 @@ public class DesignerTemp extends Activity{
     void ShowActivitiesDialogue(){
         final Dialog dialog = new Dialog(DesignerTemp.this);
         dialog.setContentView(R.layout.activities_list);
-        dialog.setTitle("Choose then part");
+        dialog.setTitle("Choose If YES part");
 
 
         final CheckBox StepActivity= (CheckBox) dialog.findViewById(R.id.steps_activity);
@@ -683,8 +688,9 @@ public class DesignerTemp extends Activity{
             public void onClick(View v) {
                 dialog.dismiss();
                 boolean isChecked = false;
+                Activities +="-";
                 if(StepActivity.isChecked()){
-                    Activities += CheckIfCondition()+"Then{Walk " +
+                    Activities += "Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -692,11 +698,11 @@ public class DesignerTemp extends Activity{
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Wait " +
+                        Activities += "Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -705,39 +711,39 @@ public class DesignerTemp extends Activity{
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Turn Left";
+                        Activities += "Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
-                        Activities +=CheckIfCondition()+ "Then{Turn Right";
+                        Activities += "Turn Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say '" +
+                        Activities += "+Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Say '" +
+                        Activities += "Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
-                        Activities+
-                        "");
+                //Toast.makeText(getApplicationContext(),Activities,Toast.LENGTH_LONG).show();
+                ShowActivitiesDialogueElse();
+
+
             }
 
         });
@@ -803,7 +809,7 @@ public class DesignerTemp extends Activity{
                 dialog.dismiss();
                 boolean isChecked = false;
                 if(StepActivity.isChecked()){
-                    Activities += "/Else{Walk " +
+                    Activities += "/Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -811,11 +817,11 @@ public class DesignerTemp extends Activity{
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
-                        Activities += "/Else{Wait " +
+                        Activities += "/Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -824,37 +830,36 @@ public class DesignerTemp extends Activity{
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
-                        Activities += "/Else{Turn Left";
+                        Activities += "/Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
-                        Activities += "/Else{Turn Right";
+                        Activities += "/Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say '" +
+                        Activities += "+Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
-                        Activities += "/Else{Say '" +
+                        Activities += "/Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities+
                         "");
             }
@@ -924,7 +929,7 @@ public class DesignerTemp extends Activity{
                 if(StepActivity.isChecked()){
                     Activities += ",Repeat(" +
                             countRepeat +
-                            "){Walk " +
+                            ")-Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -932,12 +937,12 @@ public class DesignerTemp extends Activity{
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Wait " +
+                                countRepeat +")-Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -946,40 +951,39 @@ public class DesignerTemp extends Activity{
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Turn Left";
+                                countRepeat +")-Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Turn Right";
+                                countRepeat +")-Turn Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say'" +
+                        Activities += "+Say'" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Say '" +
+                                countRepeat +")-Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities+
                         "");
             }

@@ -231,7 +231,7 @@ public class Designer extends Activity {
                                     SaySomethingCount.getText().toString() +
                                     "'";
                         }
-                        WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                        WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                                 Activities +
                                 "");
                     }
@@ -310,7 +310,7 @@ public class Designer extends Activity {
                         }
                         if(WaitActivity.isChecked()){
                             if(isChecked){
-                                Activities += " And Wait " +
+                                Activities += "+Wait " +
                                         SecondsCount.getText().toString() +
                                         " Seconds";
                             }else{
@@ -323,7 +323,7 @@ public class Designer extends Activity {
                         }
                         if(TurnLeftActivity.isChecked()){
                             if(isChecked){
-                                Activities += " And Turn Left";
+                                Activities += "+Turn Left";
                             }else{
                                 Activities += CheckIfCondition()+"Turn Left";
                             }
@@ -332,7 +332,7 @@ public class Designer extends Activity {
                         }
                         if(TurnRightActivity.isChecked()){
                             if(isChecked){
-                                Activities += " And Turn Right";
+                                Activities += "+Turn Right";
                             }else{
                                 Activities +=CheckIfCondition()+ "Turn Right";
                             }
@@ -341,7 +341,7 @@ public class Designer extends Activity {
                         }
                         if(SaySomethingActivity.isChecked()){
                             if(isChecked){
-                                Activities += " And Say '" +
+                                Activities += "+Say '" +
                                         SaySomethingCount.getText().toString() +
                                         "'";
                             }else{
@@ -352,7 +352,7 @@ public class Designer extends Activity {
 
                             isChecked = true;
                         }
-                        WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                        WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                                 Activities+
                                 "");
                     }
@@ -510,7 +510,7 @@ public class Designer extends Activity {
                 for (int i = 1; i < temp.length-1; i++) {
                     Activities = Activities + "," + temp[i];
                 }
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities +
                         "");
             }
@@ -666,8 +666,9 @@ public class Designer extends Activity {
             public void onClick(View v) {
                 dialog.dismiss();
                 boolean isChecked = false;
+                Activities +="-";
                 if(StepActivity.isChecked()){
-                    Activities += CheckIfCondition()+"Then{Walk " +
+                    Activities += CheckIfCondition()+"Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -675,11 +676,11 @@ public class Designer extends Activity {
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Wait " +
+                        Activities += CheckIfCondition()+"Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -688,37 +689,37 @@ public class Designer extends Activity {
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Turn Left";
+                        Activities += CheckIfCondition()+"Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
-                        Activities +=CheckIfCondition()+ "Then{Turn Right";
+                        Activities +=CheckIfCondition()+ "Turn Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say '" +
+                        Activities += "+Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
-                        Activities += CheckIfCondition()+"Then{Say '" +
+                        Activities += CheckIfCondition()+"Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                //Activities+="}";
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities+
                         "");
             }
@@ -786,7 +787,7 @@ public class Designer extends Activity {
                 dialog.dismiss();
                 boolean isChecked = false;
                 if(StepActivity.isChecked()){
-                    Activities += "/Else{Walk " +
+                    Activities += "/Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -794,11 +795,11 @@ public class Designer extends Activity {
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
-                        Activities += "/Else{Wait " +
+                        Activities += "/Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -807,37 +808,36 @@ public class Designer extends Activity {
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
-                        Activities += "/Else{Turn Left";
+                        Activities += "/Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
-                        Activities += "/Else{Turn Right";
+                        Activities += "/Turn Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say '" +
+                        Activities += "+Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
-                        Activities += "/Else{Say '" +
+                        Activities += "/Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities+
                         "");
             }
@@ -907,7 +907,7 @@ public class Designer extends Activity {
                 if(StepActivity.isChecked()){
                     Activities += ",Repeat(" +
                             countRepeat +
-                            "){Walk " +
+                            ")-Walk " +
                             StepsCount.getText().toString() +
                             " Steps";
                     isChecked = true;
@@ -915,12 +915,12 @@ public class Designer extends Activity {
                 }
                 if(WaitActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Wait " +
+                        Activities += "+Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Wait " +
+                                countRepeat +")-Wait " +
                                 SecondsCount.getText().toString() +
                                 " Seconds";
                     }
@@ -929,40 +929,39 @@ public class Designer extends Activity {
                 }
                 if(TurnLeftActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Left";
+                        Activities += "+Turn Left";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Turn Left";
+                                countRepeat +")-Turn Left";
                     }
 
                     isChecked = true;
                 }
                 if(TurnRightActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Turn Right";
+                        Activities += "+Turn Right";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Turn Right";
+                                countRepeat +")-Turn Right";
                     }
 
                     isChecked = true;
                 }
                 if(SaySomethingActivity.isChecked()){
                     if(isChecked){
-                        Activities += " And Say'" +
+                        Activities += "+Say'" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }else{
                         Activities += ",Repeat(" +
-                                countRepeat +"){Say '" +
+                                countRepeat +")-Say '" +
                                 SaySomethingCount.getText().toString() +
                                 "'";
                     }
 
                     isChecked = true;
                 }
-                Activities+="}";
-                WebDesigner.loadUrl("file:///android_asset/html/classes.html" + "?string_input=" +
+                WebDesigner.loadUrl("file:///android_asset/html/Index.html" + "?string_input=" +
                         Activities+
                         "");
             }

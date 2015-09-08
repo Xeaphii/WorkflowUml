@@ -1,87 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#006600"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_gravity="center"
     android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@android:color/darker_gray"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/activity_button"
-            android:layout_width="fill_parent"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-
-            android:textColor="#003300"
-            android:text="Activity"
+            android:layout_width="250dp"
+            android:layout_height="130dp"
+            android:layout_margin="15dp"
+            android:background="@mipmap/activitybut"
             />
-
-        <Button
-            android:id="@+id/activities_button"
+        <View
             android:layout_width="fill_parent"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-
-            android:padding="10dp"
-            android:textColor="#003300"
-            android:layout_margin="3dp"
-            android:layout_height="wrap_content"
-            android:text="Activities"
-            />
-
-        <Button
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+        <ImageButton
             android:id="@+id/if_button"
-            android:layout_width="fill_parent"
-            android:layout_margin="3dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-            android:textColor="#003300"
-            android:text="If"
+            android:layout_width="250dp"
+            android:layout_margin="15dp"
+            android:layout_height="150dp"
+            android:background="@mipmap/condition"
             />
-        <Button
-            android:id="@+id/else_button"
+        <View
             android:layout_width="fill_parent"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-            android:textColor="#003300"
-            android:padding="10dp"
-
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:text="Else"
-            />
-        <Button
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+        <ImageButton
             android:id="@+id/repeat_button"
-            android:layout_width="fill_parent"
-            android:padding="10dp"
-            android:layout_margin="3dp"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-            android:textColor="#003300"
-            android:layout_height="wrap_content"
-            android:text="Repeat"
-            />
+            android:layout_width="250dp"
+            android:layout_margin="15dp"
+            android:background="@mipmap/repeat"
 
+            android:layout_height="150dp"
 
-        <Button
-            android:id="@+id/delete_button"
-            android:layout_width="fill_parent"
-            android:padding="10dp"
-            android:background="@drawable/button"
-            android:textStyle="bold"
-            android:textColor="#003300"
-            android:layout_margin="3dp"
-            android:layout_height="wrap_content"
-            android:text="Delete"
             />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
 
     </LinearLayout>
 </LinearLayout>
