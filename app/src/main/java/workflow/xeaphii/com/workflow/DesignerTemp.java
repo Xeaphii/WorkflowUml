@@ -20,8 +20,6 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -601,7 +599,9 @@ public class DesignerTemp extends Activity{
                 }
 
             }
-            Toast.makeText(DesignerTemp.this,"Good work! your work is saved.",Toast.LENGTH_LONG).show();
+            Toast.makeText(DesignerTemp.this,"File is saved.",Toast.LENGTH_LONG).show();
+            Intent i = new Intent(DesignerTemp.this,JobDone.class);
+            startActivity(i);
             pw.flush();
             pw.close();
             f.close();

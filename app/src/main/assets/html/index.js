@@ -10,7 +10,7 @@ var isIfElse = 0;
 window.onload = function() {
 	data=  getURLParameters("string_input").substr(1, getURLParameters("string_input").length-1);
 	ActivitiesArray = data.split(",");
-	height = (ActivitiesArray.length/3)*height;
+	height = ((ActivitiesArray.length+1)/2)*height;
 	
 	
 
@@ -58,10 +58,10 @@ window.onload = function() {
 
 }
 function DrawElipse(paper,y){
-	if(isIfElse == 0){
-	var d = "M "+(width/2)+","+(-40+100*y)+" L "+(width/2)+","+(10+100*y);
-	paper.path(d);
-	}
+//	if(isIfElse == 0){
+     //	var d = "M "+(width/2)+","+(-40+100*y)+" L "+(width/2)+","+(10+100*y);
+     //	paper.path(d);
+     //	}
 	paper.ellipse(50, 25, 50, 25).translate(width/2-50,10+100*y).attr({fill: '#D4FF5F'});
 	paper.text(width/2, 35+100*y, ReformatText("START")).attr({fill: '#000000',"font-size": 14, "font-family": "Arial, Helvetica, sans-serif"});
 	
